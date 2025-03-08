@@ -3,7 +3,7 @@
 This is a application made following the trend going on insta to make a collage to see how you see each other and etc.
 I made it easier.
 
-![How You See Demo](temp.png)
+![How You See Demo](tem.png)
 
 ## Features
 

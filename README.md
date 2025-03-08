@@ -1,4 +1,35 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# How You See me Trend
+
+This is a application made following the trend going on insta to make a collage to see how you see each other and etc.
+I made it easier.
+
+![How You See Demo](temp.png)
+
+## Features
+
+- Upload images for 9 different categories:
+  - Animal
+  - Place 
+  - Plant
+  - Character
+  - Season
+  - Hobby
+  - Color
+  - Drink
+  - Food
+- View images in a responsive grid layout
+- Generate and download a collage of all uploaded images
+- Delete and replace images as needed
+- Clean and intuitive user interface
+
+## Technologies Used
+
+- Next.js 14
+- TypeScript
+- Tailwind CSS
+- UploadThing for image storage
+- React Server Components
+
 
 ## Getting Started
 

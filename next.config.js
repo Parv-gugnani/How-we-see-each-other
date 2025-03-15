@@ -4,14 +4,12 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'uploadthing.com',
-        pathname: '/f/**',
+        hostname: 'github.com',
       },
       {
         protocol: 'https',
-        hostname: 'utfs.io',
-        pathname: '/f/**',
-      }
+        hostname: 'avatars.githubusercontent.com',
+      },
     ],
   },
 };

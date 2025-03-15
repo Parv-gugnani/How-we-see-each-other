@@ -2,7 +2,11 @@
 
 A modern web application that lets you create personalized 3x3 grid collages to show how you see someone special, inspired by the viral social media trend.
 
-![Sample Collage](/public/sample.png)
+<img src="/public/sample.png" width="200" />
+
+<img src="https://github.com/user-attachments/assets/c0ea3a04-d5a3-4419-a344-fc369a3ef97f" width="200" />
+
+
 
 ## Features
 

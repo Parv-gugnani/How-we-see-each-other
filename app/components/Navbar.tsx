@@ -26,10 +26,10 @@ export function Navbar() {
               Gallery
             </Link>
             <Link
-              href="/upload"
-              className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${isActive("/upload")}`}
+              href="/about"
+              className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${isActive("/")}`}
             >
-              Upload
+              About
             </Link>
           </div>
         </div>

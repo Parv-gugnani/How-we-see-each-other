@@ -1,67 +1,94 @@
-# How You See me Trend
+# How You See
 
-This is a application made following the trend going on insta to make a collage to see how you see each other and etc.
-I made it easier.
+A modern web application that lets you create personalized 3x3 grid collages to show how you see someone special, inspired by the viral social media trend.
 
-![image](https://github.com/user-attachments/assets/9b293fe3-34cf-4ab8-ac26-d67fe6a1d807)
+![Sample Collage](/public/sample.png)
 
 ## Features
 
-- Upload images for 9 different categories:
-  - Animal
-  - Place 
-  - Plant
-  - Character
-  - Season
-  - Hobby
-  - Color
-  - Drink
-  - Food
-- View images in a responsive grid layout
-- Generate and download a collage of all uploaded images
-- Delete and replace images as needed
-- Clean and intuitive user interface
+- Choose between "How You See Him" or "How You See Her"
+- Create 3x3 grid collages with 9 unique categories
+- Mobile-optimized upload experience
+- Instant collage generation with category labels
+- Automatic cleanup after download
 
-## Technologies Used
+## Tech Stack
 
-- Next.js 14
+- Next.js 14 with App Router
 - TypeScript
 - Tailwind CSS
-- UploadThing for image storage
-- React Server Components
+- UploadThing
+- Canvas API
 
+## Installation
 
-## Getting Started
-
-First, run the development server:
-
+1. Clone the repository:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/your-username/how-you-see.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install dependencies:
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Set up environment variables:
+```bash
+cp .env.example .env
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. Run the development server:
+```bash
+npm run dev
+```
 
-## Learn More
+Open [http://localhost:3000](http://localhost:3000) to start using the app.
 
-To learn more about Next.js, take a look at the following resources:
+## Contributing
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Contributions are welcome! Here's how you can help:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Development Process
 
-## Deploy on Vercel
+1. Fork the repository
+2. Create your feature branch:
+```bash
+git checkout -b feature/your-feature-name
+```
+3. Make your changes and test them
+4. Commit your changes:
+```bash
+git commit -m 'Add some feature'
+```
+5. Push to your branch:
+```bash
+git push origin feature/your-feature-name
+```
+6. Create a Pull Request
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Guidelines
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Follow the existing code style and formatting
+- Write meaningful commit messages
+- Update documentation for any new features
+- Add tests if applicable
+- Ensure your code passes all tests
+
+### Development Setup
+
+Required environment variables:
+```env
+UPLOADTHING_SECRET=your_secret_here
+UPLOADTHING_APP_ID=your_app_id_here
+```
+
+### Areas for Contribution
+
+- UI/UX improvements
+- New features
+- Bug fixes
+- Performance optimizations
+- Documentation improvements
+- Test coverage
+
+For major changes, please open an issue first to discuss what you would like to change.

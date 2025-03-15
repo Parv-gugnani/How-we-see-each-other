@@ -184,6 +184,9 @@ export default function GalleryPage() {
         a.click();
         document.body.removeChild(a);
         URL.revokeObjectURL(url);
+        
+        toast.success('Collage downloaded successfully!');
+        toast.loading('Cleaning up uploaded images...', { id: 'cleanup' });
 
         // Delete all images after successful download
         try {
@@ -205,9 +208,10 @@ export default function GalleryPage() {
           setImages({});
           setShowCollage(false);
           setShowGenderSelection(true);
+          toast.success('All uploaded images have been cleaned up for privacy!', { id: 'cleanup' });
         } catch (error) {
           console.error("Error cleaning up images:", error);
-          toast.error('Failed to clean up images');
+          toast.error('Failed to clean up some images. Please try again.', { id: 'cleanup' });
         }
       }, 'image/png');
     } catch (error) {
@@ -220,19 +224,28 @@ export default function GalleryPage() {
 
   if (showGenderSelection) {
     return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-        <div className="bg-white p-8 rounded-2xl shadow-lg max-w-md w-full mx-4">
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center relative overflow-hidden">
+        <div className="absolute left-1/2 top-[40%] -translate-x-1/2 -translate-y-1/2 w-[600px] h-[800px]">
+          <Image
+            src="/sample.png"
+            alt="Background"
+            fill
+            className="object-contain blur-[2px] opacity-20"
+            priority
+          />
+        </div>
+        <div className="bg-white/90 backdrop-blur-sm p-8 rounded-2xl shadow-lg max-w-md w-full mx-4 relative z-10">
           <h1 className="text-2xl font-bold text-center mb-8 text-gray-900">How You See...</h1>
           <div className="flex flex-col gap-4">
             <button
               onClick={() => handleGenderSelect('him')}
-              className="w-full py-4 px-6 bg-blue-600 text-white rounded-xl font-semibold text-lg hover:bg-blue-700 transition-colors"
+              className="w-full py-4 px-6 bg-blue-600 text-white rounded-xl font-semibold text-lg hover:bg-blue-700 transition-colors cursor-pointer"
             >
               How You See Him
             </button>
             <button
               onClick={() => handleGenderSelect('her')}
-              className="w-full py-4 px-6 bg-pink-600 text-white rounded-xl font-semibold text-lg hover:bg-pink-700 transition-colors"
+              className="w-full py-4 px-6 bg-pink-600 text-white rounded-xl font-semibold text-lg hover:bg-pink-700 transition-colors cursor-pointer"
             >
               How You See Her
             </button>
@@ -362,7 +375,11 @@ export default function GalleryPage() {
                     <div className="relative">
                       <UploadButton<OurFileRouter, "imageUploader">
                         endpoint="imageUploader"
-                        onUploadProgress={() => {}}
+                        onUploadProgress={(progress) => {
+                          toast.loading(`Uploading: ${progress}%`, {
+                            id: `upload-${category.name}`,
+                          });
+                        }}
                         onClientUploadComplete={(res) => {
                           if (res && res[0]) {
                             const newImage = {
@@ -374,14 +391,20 @@ export default function GalleryPage() {
                               ...prev,
                               [category.name]: newImage
                             }));
+                            toast.success(`${category.name} image uploaded successfully!`, {
+                              id: `upload-${category.name}`,
+                            });
                           }
                         }}
-                        onUploadError={() => {
-                          toast.error(`Upload failed`);
+                        onUploadError={(error) => {
+                          toast.error(`Failed to upload ${category.name} image: ${error.message}`, {
+                            id: `upload-${category.name}`,
+                          });
                         }}
                         appearance={{
-                          button: "w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors touch-manipulation active:bg-gray-300 shadow-sm",
-                          allowedContent: "hidden"
+                          button: "w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors touch-manipulation active:bg-gray-300 shadow-sm opacity-0",
+                          allowedContent: "hidden",
+                          container: "!mt-0"
                         }}
                       />
                       <div className="absolute inset-0 pointer-events-none flex items-center justify-center">
